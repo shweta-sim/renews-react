@@ -1,0 +1,66 @@
+.modal {
+  z-index: 12;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 42rem;
+}
+
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+}
+.modal button {
+  border: none;
+  padding: 15px 20px;
+  margin: 10px 20px 10px 0;
+  background-color: cadetblue;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.modal button:hover {
+  background-color: lightgray;
+  color: cadetblue;
+}
+
+@media screen and (max-width: 575.98px) {
+  .modal-content {
+    width: 90%;
+  }
+
+  .modal h1 {
+    font-size: 18px;
+  }
+
+  .modal button {
+    padding: 5px 10px;
+    margin: 5px 10px 5px 0;
+    font-size: 16px;
+  }
+}

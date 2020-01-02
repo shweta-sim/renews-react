@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=yes"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Dashboard</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/addTopics.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <header>
+      <!-- Search Box, Button & Add Topic -->
+      <section class="search">
+        <input
+          type="text"
+          id="search"
+          name="search"
+          placeholder="What are we looking for?"
+          onkeydown="getValueByEnter(this)"
+        />
+        <section class="searchbtn">
+          <a href="#" id="searchButton"><i class="fas fa-search"></i></a>
+        </section>
+
+        <section class="addtopic trigger">
+          <a href="#"><i class="fas fa-plus"></i></a>
+        </section>
+
+        <!-- Modal Window For Topics -->
+        <div class="modal">
+          <div class="modal-content">
+            <h1>Choose News Topics</h1>
+            <section id="addTopicsWrapper"></section>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- My Topics Row -->
+    <section id="myTopicsWrapper" class="myTopicsWrapper"></section>
+
+    <!-- Date/Time, Weather & Banner widgets -->
+    <section class="widgets">
+      <aside>
+        <section class="w-datetime">
+          <h6 id="date"></h6>
+          <h3 id="time"></h3>
+        </section>
+        <section class="w-weather">
+          <h1 class="temperature"></h1>
+          <span class="city"></span>
+        </section>
+      </aside>
+      <section class="w-banner"></section>
+    </section>
+
+    <!-- News Feed -->
+    <section class="newsfeed"></section>
+
+    <footer>Developed by Shweta Singh for &lt/salt&gt</footer>
+
+    <!-- All Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="scripts/onLoad.js"></script>
+    <script src="scripts/moment.js"></script>
+    <script src="scripts/addTopics.js"></script>
+    <script src="scripts/temperature.js"></script>
+    <script src="scripts/renderFeed.js"></script>
+    <script src="scripts/topics.js"></script>
+    <script src="scripts/randomBannerImage.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/date-time.js"></script>
+  </body>
+</html>
