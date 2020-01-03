@@ -324,7 +324,7 @@ footer {
   -webkit-column-gap: 10px;
   margin-bottom: 100px;
 }
-.newsfeed article {
+article.newsCard {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -339,7 +339,7 @@ footer {
   -ms-transition: all 0.3s ease-in;
   cursor: pointer;
 }
-.newsfeed article:hover {
+article.newsCard:hover {
   z-index: 5;
   box-shadow: 30px 30px 60px rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: 30px 30px 60px rgba(0, 0, 0, 0.6);
@@ -347,10 +347,10 @@ footer {
   -o-box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
   -ms-box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
 }
-.newsfeed article div {
+article.newsCard div {
   padding: 60px 40px;
 }
-.newsfeed article img {
+article.newsCard img {
   width: 120px;
   height: 120px;
   display: block;
@@ -368,51 +368,51 @@ footer {
   -o-transition: all 0.3s ease-in;
   -ms-transition: all 0.3s ease-in;
 }
-.newsfeed article:hover img {
+article.newsCard:hover img {
   -webkit-transform: scale(0.93);
   -moz-transform: scale(0.93);
   -ms-transform: scale(0.93);
   transform: scale(0.93);
 }
-.newsfeed article:hover img {
+article.newsCard:hover img {
   border: 10px solid rgba(255, 255, 255, 1);
 }
-.newsfeed article h5,
-.newsfeed article p {
+article.newsCard h5,
+article.newsCard p {
   color: #fff;
   text-align: center;
 }
-.newsfeed article h5 {
+article.newsCard h5 {
   text-align: center;
   margin-bottom: 10px !important;
 }
-.newsfeed article p.datetime {
+article.newsCard p.datetime {
   margin-bottom: 30px;
   font-size: 14px;
   opacity: 0.6;
 }
-.newsfeed article:nth-child(6n) {
+article.newsCard:nth-child(6n) {
   background: #484c7f;
 }
-.newsfeed article:nth-child(6n + 1) {
+article.newsCard:nth-child(6n + 1) {
   background: #ac8daf;
 }
-.newsfeed article:nth-child(6n + 2) {
+article.newsCard:nth-child(6n + 2) {
   background: #f8f1f1;
 }
-.newsfeed article:nth-child(6n + 3) {
+article.newsCard:nth-child(6n + 3) {
   background: #dbadad;
 }
-.newsfeed article:nth-child(6n + 4) {
+article.newsCard:nth-child(6n + 4) {
   background: #f2eee5;
 }
-.newsfeed article:nth-child(6n + 5) {
+article.newsCard:nth-child(6n + 5) {
   background: #ddb6c6;
 }
-.newsfeed article:nth-child(6n + 2) h5,
-.newsfeed article:nth-child(6n + 2) p,
-.newsfeed article:nth-child(6n + 4) h5,
-.newsfeed article:nth-child(6n + 4) p {
+article.newsCard:nth-child(6n + 2) h5,
+article.newsCard:nth-child(6n + 2) p,
+article.newsCard:nth-child(6n + 4) h5,
+article.newsCard:nth-child(6n + 4) p {
   color: #000;
 }
 
