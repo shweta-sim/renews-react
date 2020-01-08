@@ -30,6 +30,7 @@ class App extends Component {
         this.setState({
           articles: data.articles
         });
+        console.log(data);
       })
       .catch(console.log);
   };
@@ -85,6 +86,9 @@ class App extends Component {
                 key={id}
                 title={article.title}
                 description={article.description}
+                published={article.publishedAt}
+                image={article.image}
+                url={article.url}
               />
             );
           })}

@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
+const dummyImg = 'http://sofrehaghd.se/demo/renews/images/img-news11.jpg';
 
 class NewsCard extends Component {
+  constructor() {
+    super();
+    this.state = {};
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick = () => {
+    window.open(this.props.url, '_blank');
+  };
+
   render() {
     return (
-      <article className='newsCard'>
+      <article className='newsCard' onClick={this.handleClick}>
         <div>
-          <img src='imgs/img-news1.jpg' />
+          <img src={this.props.image ? this.props.image : dummyImg} />
           <h5>{this.props.title}</h5>
-          <p className='datetime'>29-10-2019 06:30PM</p>
+          <p className='datetime'>{this.props.published}</p>
           <p>{this.props.description}</p>
         </div>
       </article>

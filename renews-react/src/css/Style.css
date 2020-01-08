@@ -196,7 +196,8 @@ header .searchbtn:hover {
   flex: 1;
   height: 200px;
   margin-bottom: 10px;
-  background: url('../imgs/bg-datetime.jpg') 50% 50% no-repeat !important;
+  background: url('http://sofrehaghd.se/demo/renews/images/bg-datetime.jpg') 50%
+    50% no-repeat !important;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -230,7 +231,8 @@ header .searchbtn:hover {
 .widgets .w-weather {
   flex: 1;
   height: 200px;
-  background: url('../imgs/bg-weather.jpg') 50% 50% no-repeat !important;
+  background: url('http://sofrehaghd.se/demo/renews/images/bg-weather.jpg') 50%
+    50% no-repeat !important;
   background-size: cover;
   display: flex;
   flex-direction: column;
