@@ -20,7 +20,7 @@ const Banner = () => {
 
   return (
     <section
-      class='w-banner'
+      className='w-banner'
       style={{
         backgroundImage: `url('${banner}')`
       }}></section>

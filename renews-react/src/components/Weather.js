@@ -23,9 +23,9 @@ const Weather = () => {
   }, []);
 
   return (
-    <section class='w-weather'>
-      <h1 class='temperature'>{temp.toString()}</h1>
-      <span class='city'>{city.toString()}</span>
+    <section className='w-weather'>
+      <h1 className='temperature'>{temp.toString()}</h1>
+      <span className='city'>{city.toString()}</span>
     </section>
   );
 };

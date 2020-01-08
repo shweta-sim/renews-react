@@ -1,117 +1,108 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddCategory from './components/AddCategory';
-import MyTopics from './components/MyTopics';
 import DateTime from './components/DateTime';
 import Weather from './components/Weather';
 import Banner from './components/Banner';
 import NewsCard from './components/NewsCard';
 import Footer from './components/Footer';
+import MyTopics from './components/MyTopics';
 
 // NEWS CONFIG
 const search_url = 'https://gnews.io/api/v3/search';
 const top_news_url = 'https://gnews.io/api/v3/top-news';
-const _api_key = '9479c5195f851b70901766087171c584';
+const _api_key = '608c2ec46030a003e81b7c14ebc58777';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      articles: []
-    };
-    this.handleFetch = this.handleFetch.bind(this);
-    this.getValueByEnter = this.getValueByEnter.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
-  }
+const App = () => {
+  const [articles, setArticles] = useState([]);
 
-  handleFetch = searchVal => {
+  const handleFetch = searchVal => {
     fetch(`${search_url}?q=${searchVal}&token=${_api_key}`)
       .then(res => res.json())
       .then(data => {
-        /*{showCards(data);}*/
-        this.setState({
-          articles: data.articles
-        });
-        console.log(data);
+        setArticles(data.articles);
+        console.log(data.articles);
       })
       .catch(console.log);
   };
 
-  getValueByEnter = event => {
+  const getValueByEnter = event => {
     if (event.key === 'Enter') {
       const searchVal = document.querySelector('#search').value;
-      this.handleFetch(searchVal);
+      handleFetch(searchVal);
     }
   };
 
-  handleSearch = event => {
+  const handleSearch = event => {
     event.preventDefault();
     const searchVal = document.querySelector('#search').value;
-    this.handleFetch(searchVal);
+    handleFetch(searchVal);
   };
 
-  componentDidMount = () => {
+  useEffect(() => {
     // Request for random top news items
     fetch(`${top_news_url}?token=${_api_key}`)
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          articles: data.articles
-        });
-        console.log(data);
+        setArticles(data.articles);
       })
       .catch(console.log);
+  }, []);
+
+  const showModal = () => {
+    document.getElementById('catgModal').style.display = 'block';
   };
 
-  render() {
-    return (
-      <div>
-        <header>
-          <section className='search'>
-            <input
-              type='text'
-              id='search'
-              name='search'
-              placeholder='What are we looking for?'
-              onKeyDown={this.getValueByEnter}
-            />
-            <section className='searchbtn'>
-              <a href='#' id='searchButton' onClick={this.handleSearch}>
-                <i className='fas fa-search'></i>
-              </a>
-            </section>
-
-            <AddCategory />
+  return (
+    <div>
+      <header>
+        <section className='search'>
+          <input
+            type='text'
+            id='search'
+            name='search'
+            placeholder='Search news...'
+            onKeyDown={getValueByEnter}
+          />
+          <section className='searchbtn'>
+            <a href='#' id='searchButton' onClick={handleSearch}>
+              <i className='fas fa-search'></i>
+            </a>
           </section>
-        </header>
-        <MyTopics />
-
-        <section class='widgets'>
-          <aside>
-            <DateTime />
-            <Weather />
-          </aside>
-          <Banner />
+          <AddCategory display={showModal} />
+          {/* MODAL STARTS */}
+          <div id='catgModal' style={{ display: 'none' }}>
+            <MyTopics />
+          </div>
+          {/* MODAL ENDS */}
         </section>
+      </header>
 
-        <section class='newsfeed'>
-          {this.state.articles.map((article, id) => {
-            return (
-              <NewsCard
-                key={id}
-                title={article.title}
-                description={article.description}
-                published={article.publishedAt}
-                image={article.image}
-                url={article.url}
-              />
-            );
-          })}
-        </section>
+      <section className='widgets'>
+        <aside>
+          <DateTime />
+          <Weather />
+        </aside>
+        <Banner />
+      </section>
 
-        <Footer />
-      </div>
-    );
-  }
-}
+      <section className='newsfeed'>
+        {articles.map((article, id) => {
+          return (
+            <NewsCard
+              key={id}
+              title={article.title}
+              description={article.description}
+              published={article.publishedAt}
+              image={article.image}
+              url={article.url}
+            />
+          );
+        })}
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
 
 export default App;

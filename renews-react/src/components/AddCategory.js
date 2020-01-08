@@ -1,22 +1,19 @@
 import React from 'react';
 
-function AddCategory() {
+const AddCategory = props => {
+  const handleClick = () => {
+    props.display();
+  };
+
   return (
     <div>
-      <section class='addtopic trigger'>
-        <a href='#'>
-          <i class='fas fa-plus'></i>
+      <section className='addtopic trigger'>
+        <a href='#' onClick={handleClick}>
+          <i className='fas fa-plus'></i>
         </a>
       </section>
-
-      {/* <div class="modal">
-          <div class="modal-content">
-            <h1>Choose News Topics</h1>
-            <section id="addTopicsWrapper"></section>
-          </div>
-        </div> */}
     </div>
   );
-}
+};
 
 export default AddCategory;

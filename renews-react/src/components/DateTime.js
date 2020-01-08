@@ -16,7 +16,7 @@ const DateTime = () => {
   });
 
   return (
-    <section class='w-datetime'>
+    <section className='w-datetime'>
       <h6 id='date'>{moment().format('MMMM Do YYYY')}</h6>
       <h3 id='time'>
         <p>{time.toString()}</p>
